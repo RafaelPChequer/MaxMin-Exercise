@@ -1,0 +1,32 @@
+@startuml
+skinparam monochrome true
+skinparam nodesep 50
+skinparam ranksep 50
+0_0_7 : "Level 0\n[0-7]\n[23, 12, 45, 9, 78, 3, 56, 27]"
+1_0_3 : "Level 1\n[0-3]\n[23, 12, 45, 9]"
+2_0_1 : "Level 2\n[0-1]\n[23, 12]"
+combine_2_0_1 : "min=12 max=23\nComp=1"
+2_2_3 : "Level 2\n[2-3]\n[45, 9]"
+combine_2_2_3 : "min=9 max=45\nComp=1"
+combine_1_0_3 : "min=9 max=45\nComp=2"
+1_4_7 : "Level 1\n[4-7]\n[78, 3, 56, 27]"
+2_4_5 : "Level 2\n[4-5]\n[78, 3]"
+combine_2_4_5 : "min=3 max=78\nComp=1"
+2_6_7 : "Level 2\n[6-7]\n[56, 27]"
+combine_2_6_7 : "min=27 max=56\nComp=1"
+combine_1_4_7 : "min=3 max=78\nComp=2"
+combine_0_0_7 : "min=3 max=78\nComp=2"
+0_0_7 --> 1_0_3
+0_0_7 --> 1_4_7
+0_0_7 --> combine_0_0_7
+1_0_3 --> 2_0_1
+1_0_3 --> 2_2_3
+1_0_3 --> combine_1_0_3
+2_0_1 --> combine_2_0_1
+2_2_3 --> combine_2_2_3
+1_4_7 --> 2_4_5
+1_4_7 --> 2_6_7
+1_4_7 --> combine_1_4_7
+2_4_5 --> combine_2_4_5
+2_6_7 --> combine_2_6_7
+@enduml
